@@ -1,49 +1,95 @@
-import Task3.Park;
-import Task3.Product;
+import Task4.Bowl;
+import Task4.Dog;
+import Task4.Cat;
+import Task4.Animal;
+import Task4.Circle;
+import Task4.Rectangle;
+import Task4.Triangle;
 
 public class Main {
-	
 
 	public static void main(String[] args) {
-		//Task3_2
-		System.out.println("Задание 3_2\nСоздание списка продуктов\n");
-		Product[] products = new Product[5];
-
-		products[0] = new Product("KitKat", "01.01.2023", 
-	                                      "CandyGroup", "Russia", 200, true);
-	        
-		products[1] = new Product("Mars", "05.08.2024", 
-	                                      "CandyGroup", "Belarus", 150, false);
-	        
-		products[2] = new Product("Bounty", "10.12.2024", 
-	                                      "CandyGroup", "China", 350, true);
-	        
-		products[3] = new Product("Snikers", "12.12.2022", 
-	                                      "CandyGroup", "USA", 150, false);
-	        
-		products[4] = new Product("Skettles", "08.05.2025", 
-	                                      "CandyGroup", "Russia", 210, true);
-
-		System.out.println("Список товаров:");
-		for (int i = 0; i < products.length; i++) {
-	        System.out.println("__ Информация о товаре " + (i+1) +" __");
-			products[i].printInfo();
-		}
-		
-		
-		
-		//Task3_3
-		System.out.println("\nЗадание 3_3\nСоздание парка атрикционов\n");
-        Park.Attraction[] attractions = new Park.Attraction[3];
+		//Task4_1 и 4_2
+		Dog dog = new Dog("Чип");
+        Cat cat = new Cat("Снежка");
         
-        Park centralPark = new Park("Детский центральный парк", null);
+        dog.run(150);
+        dog.run(600);
+        dog.swim(5);
+        dog.swim(15);
         
-        attractions[0] = centralPark.new Attraction("Ракушки", "10:00-20:00", 500);
-        attractions[1] = centralPark.new Attraction("Качели", "09:00-22:00", 300);
-        attractions[2] = centralPark.new Attraction("Горки", "10:00-18:00", 150);
-
-        centralPark.attractions = attractions;
-        centralPark.printParkInfo();
+        cat.run(100);
+        cat.run(250);
+        cat.swim(10);
+        
+        System.out.println("Всего животных: " + Animal.getAnimalCount());
+        System.out.println("Собак: " + Dog.getDogCount());
+        System.out.println("Котов: " + Cat.getCatCount());
+        
+        // Кормим котов
+        Bowl bowl = new Bowl(30);
+        Cat[] cats = {
+            new Cat("Алиска"),
+            new Cat("Карамелька"),
+            new Cat("Зефирка")
+        };
+        
+        System.out.println("\n--- Кормление котов ---");
+        for (Cat c : cats) {
+            c.eatFromBowl(bowl, 15);
+        }
+        
+        System.out.println("\n--- Состояние сытости ---");
+        for (Cat c : cats) {
+            System.out.println(c.getName() + ": " + (c.isFull() ? "сыта" : "голодна"));
+        }
+        
+        System.out.println("Остаток еды в миске: " + bowl.getFoodAmount());
+        
+        // Добавляем еду и кормим снова
+        bowl.addFood(20);
+        cats[2].eatFromBowl(bowl, 15);
+        
+        
+        System.out.println("\n\n\n__ ГЕОМЕТРИЧЕСКИЕ ФИГУРЫ __");
+        
+        // Создаем фигуры
+        Circle circle = new Circle(5);
+        circle.setFillColor("красный");
+        circle.setBorderColor("золотой");
+        
+        Rectangle rectangle = new Rectangle(4, 6);
+        rectangle.setFillColor("синий");
+        rectangle.setBorderColor("белый");
+        
+        Triangle triangle = new Triangle(3, 4, 5);
+        triangle.setFillColor("зеленый");
+        triangle.setBorderColor("черный");
+        
+        // Выводим информацию о фигурах
+        System.out.println("\n__ Круг __");
+        circle.printInfo();
+        
+        System.out.println("\n__ Прямоугольник __");
+        rectangle.printInfo();
+        
+        System.out.println("\n__ Треугольник __");
+        triangle.printInfo();
+        
+        // Дополнительные фигуры
+        System.out.println("\n__ Дополнительные фигуры __");
+        
+        System.out.println("\n__ Маленький круг __");
+        Circle smallCircle = new Circle(2.5);
+        smallCircle.setFillColor("желтый");
+        smallCircle.setBorderColor("оранжевый");
+        smallCircle.printInfo();
+        
+        System.out.println("\n__ Квадрат __");
+        Rectangle square = new Rectangle(5, 5);
+        square.setFillColor("фиолетовый");
+        square.setBorderColor("серебряный");
+        square.printInfo();
 	}
-
+	
 }

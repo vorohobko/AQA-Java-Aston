@@ -1,95 +1,110 @@
-import Task4.Bowl;
-import Task4.Dog;
-import Task4.Cat;
-import Task4.Animal;
-import Task4.Circle;
-import Task4.Rectangle;
-import Task4.Triangle;
+import java.util.Arrays;
+
+import Task5.MyArrayDataException;
+import Task5.MyArraySizeException;
 
 public class Main {
+	//Метод рассчёта суммы элементов массива
+    public static int calculateSum(String[][] array) throws MyArraySizeException, MyArrayDataException {
+        if (array.length != 4) {
+            throw new MyArraySizeException("Массив должен быть 4х4! Сейчас строк: " + array.length);
+        }
 
-	public static void main(String[] args) {
-		//Task4_1 и 4_2
-		Dog dog = new Dog("Чип");
-        Cat cat = new Cat("Снежка");
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].length != 4) {
+                throw new MyArraySizeException("В строке " + i + " должно быть 4 элемента! В строке: " + array[i].length);
+            }
+        }
         
-        dog.run(150);
-        dog.run(600);
-        dog.swim(5);
-        dog.swim(15);
+        int total = 0;
+
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                try {
+                    int number = Integer.parseInt(array[i][j]);
+                    total += number;
+                } catch (NumberFormatException e) {
+                	
+                    throw new MyArrayDataException("Ошибка в ячейке [" + i + "][" + j + "]: '" + array[i][j] );
+                }
+            }
+        }
         
-        cat.run(100);
-        cat.run(250);
-        cat.swim(10);
+        return total;
+    }
+    
+    //Метод дял ArrayIndexOutOfBoundsException
+    public static void testArrayBounds() {
+        int[] numbers = new int[3]; 
         
-        System.out.println("Всего животных: " + Animal.getAnimalCount());
-        System.out.println("Собак: " + Dog.getDogCount());
-        System.out.println("Котов: " + Cat.getCatCount());
-        
-        // Кормим котов
-        Bowl bowl = new Bowl(30);
-        Cat[] cats = {
-            new Cat("Алиска"),
-            new Cat("Карамелька"),
-            new Cat("Зефирка")
+        try {
+            int value = numbers[5]; 
+            System.out.println("Значение: " + value);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Индекс больше, чем нужно");
+            System.out.println("Сообщение об ошибке: " + e.getMessage());
+        }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("=== ЗАДАНИЕ 1: Правильный массив ===");
+        String[][] goodArray = {
+            {"1", "1", "1", "1"},
+            {"2", "2", "2", "2"},
+            {"3", "3", "3", "3"},
+            {"4", "4", "4", "4"}
         };
         
-        System.out.println("\n--- Кормление котов ---");
-        for (Cat c : cats) {
-            c.eatFromBowl(bowl, 15);
+        try {
+            int sum = calculateSum(goodArray);
+            System.out.println("Массив: ");
+            System.out.println(" ");
+            System.out.println(Arrays.deepToString(goodArray));
+            System.out.println("Сумма всех чисел: " + sum);
+        } catch (MyArraySizeException e) {
+            System.out.println("Ошибка размера: " + e.getMessage());
+        } catch (MyArrayDataException e) {
+            System.out.println("Ошибка данных: " + e.getMessage());
         }
         
-        System.out.println("\n--- Состояние сытости ---");
-        for (Cat c : cats) {
-            System.out.println(c.getName() + ": " + (c.isFull() ? "сыта" : "голодна"));
+        //ЗАДАНИЕ 2
+        System.out.println("\n=== ЗАДАНИЕ 2: Массив с буквой ===");
+        String[][] badArray = {
+        	{"1", "1", "A", "1"},
+            {"2", "2", "2", "2"},
+            {"3", "3", "3", "3"},
+            {"4", "4", "4", "4"}
+        };
+        
+        try {
+            int sum = calculateSum(badArray);
+            System.out.println("Сумма всех чисел: " + sum);
+        } catch (MyArraySizeException e) {
+            System.out.println("Ошибка размера: " + e.getMessage());
+        } catch (MyArrayDataException e) {
+            System.out.println("Ошибка данных: " + e.getMessage());
         }
         
-        System.out.println("Остаток еды в миске: " + bowl.getFoodAmount());
+        //ЗАДАНИЕ 3
+        System.out.println("\n=== ЗАДАНИЕ 3: Массив неправильного размера ===");
+        String[][] smallArray = {
+            {"1", "1", "1"},
+            {"2", "2", "2"},
+            {"3", "3", "3"}
+        };
         
-        // Добавляем еду и кормим снова
-        bowl.addFood(20);
-        cats[2].eatFromBowl(bowl, 15);
+        try {
+            int sum = calculateSum(smallArray);
+            System.out.println("Сумма всех чисел: " + sum);
+        } catch (MyArraySizeException e) {
+            System.out.println("Ошибка размера: " + e.getMessage());
+        } catch (MyArrayDataException e) {
+            System.out.println("Ошибка данных: " + e.getMessage());
+        }
         
-        
-        System.out.println("\n\n\n__ ГЕОМЕТРИЧЕСКИЕ ФИГУРЫ __");
-        
-        // Создаем фигуры
-        Circle circle = new Circle(5);
-        circle.setFillColor("красный");
-        circle.setBorderColor("золотой");
-        
-        Rectangle rectangle = new Rectangle(4, 6);
-        rectangle.setFillColor("синий");
-        rectangle.setBorderColor("белый");
-        
-        Triangle triangle = new Triangle(3, 4, 5);
-        triangle.setFillColor("зеленый");
-        triangle.setBorderColor("черный");
-        
-        // Выводим информацию о фигурах
-        System.out.println("\n__ Круг __");
-        circle.printInfo();
-        
-        System.out.println("\n__ Прямоугольник __");
-        rectangle.printInfo();
-        
-        System.out.println("\n__ Треугольник __");
-        triangle.printInfo();
-        
-        // Дополнительные фигуры
-        System.out.println("\n__ Дополнительные фигуры __");
-        
-        System.out.println("\n__ Маленький круг __");
-        Circle smallCircle = new Circle(2.5);
-        smallCircle.setFillColor("желтый");
-        smallCircle.setBorderColor("оранжевый");
-        smallCircle.printInfo();
-        
-        System.out.println("\n__ Квадрат __");
-        Rectangle square = new Rectangle(5, 5);
-        square.setFillColor("фиолетовый");
-        square.setBorderColor("серебряный");
-        square.printInfo();
-	}
+        //ЗАДАНИЕ 4
+        System.out.println("\n=== ЗАДАНИЕ 4: ArrayIndexOutOfBoundsException ===");
+        testArrayBounds();
+    }
 	
 }

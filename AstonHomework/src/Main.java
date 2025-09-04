@@ -1,4 +1,3 @@
-import java.util.*;
 import Task7.Factorial;
 import Task7.TriangleArea;
 import Task7.ArithmeticOperations;
@@ -7,7 +6,9 @@ import Task7.Comparison;
 public class Main {
     public static void main(String[] args) {
         // Задание 1 
+
     	System.out.println(" -- ЗАДАНИЕ 1 -- ");
+
         System.out.println(Factorial.getFactorial(4) - Factorial.getFactorial(2));
         
         // Задание 2 

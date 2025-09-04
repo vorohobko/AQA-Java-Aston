@@ -11,5 +11,5 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/testng-7.7.1.jar"/>
 </classpath>

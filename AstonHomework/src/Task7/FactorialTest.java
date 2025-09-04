@@ -1,54 +1,41 @@
 package Task7;
 
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.DisplayName;
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 
-class FactorialTest {
+import org.testng.annotations.Test;
+import org.testng.annotations.DataProvider;
+import static org.testng.Assert.*;
+
+public class FactorialTest {
 
     @Test
-    @DisplayName("Тест факториала 0")
-    void testFactorialOfZero() {
-        assertEquals(1, Factorial.getFactorial(0));
+    public void testFactorialOfZero() {
+        assertEquals(Factorial.getFactorial(0), 1);
     }
 
     @Test
-    @DisplayName("Тест факториала 1")
-    void testFactorialOfOne() {
-        assertEquals(1, Factorial.getFactorial(1));
+    public void testFactorialOfFive() {
+        assertEquals(Factorial.getFactorial(5), 120);
     }
 
-    @Test
-    @DisplayName("Тест факториала 5")
-    void testFactorialOfFive() {
-        assertEquals(120, Factorial.getFactorial(5));
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void testFactorialNegativeNumber() {
+        Factorial.getFactorial(-5);
     }
 
-    @Test
-    @DisplayName("Тест факториала 10")
-    void testFactorialOfTen() {
-        assertEquals(3628800, Factorial.getFactorial(10));
+    @DataProvider(name = "factorialData")
+    public Object[][] factorialData() {
+        return new Object[][]{
+            {0, 1},
+            {1, 1},
+            {2, 2},
+            {3, 6},
+            {4, 24},
+            {5, 120}
+        };
     }
 
-    @Test
-    @DisplayName("Отриц. число")
-    void testFactorialOfNegative() {
-        assertEquals(1, Factorial.getFactorial(-5));
-    }
-    
-    @ParameterizedTest
-    @CsvSource({
-        "0, 1",
-        "1, 1",
-        "2, 2",
-        "3, 6",
-        "4, 24",
-        "5, 120",
-        "6, 720"
-    })
-    void testFactorialParameterized(int input, int expected) {
-        assertEquals(expected, Factorial.getFactorial(input));
+    @Test(dataProvider = "factorialData")
+    public void testFactorialParameterized(int input, int expected) {
+        assertEquals(Factorial.getFactorial(input), expected);
     }
 }

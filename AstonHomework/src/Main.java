@@ -1,30 +1,17 @@
-import Task7.Factorial;
-import Task7.TriangleArea;
-import Task7.ArithmeticOperations;
-import Task7.Comparison;
+
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import Task8.PostmanEchoTest;
 
 public class Main {
-    public static void main(String[] args) {
-        // Задание 1 
-
-    	System.out.println(" -- ЗАДАНИЕ 1 -- ");
-
-        System.out.println(Factorial.getFactorial(4) - Factorial.getFactorial(2));
-        
-        // Задание 2 
-        System.out.println(" -- ЗАДАНИЕ 2 -- ");
-        TriangleArea triangleArea = new TriangleArea();
-        double base = 10;
-        double height = 5;
-        double area = triangleArea.calculateArea(base, height);
-        System.out.println("Площадь треугольника: " + area); 
     
-        //Задание 3
-        System.out.println(" -- ЗАДАНИЕ 3 -- ");
-        ArithmeticOperations.arithmeticOperations(2, 2);
+    public static void main(String[] args) {
+        System.out.println("Запускаем пример запроса...");
         
-        //Задание 4
-        System.out.println(" -- ЗАДАНИЕ 4 -- ");
-        Comparison.comparison(10, 7);
+        Response response = RestAssured.get("https://postman-echo.com/get?test=hello");
+        
+        System.out.println("Код ответа: " + response.getStatusCode());
+        System.out.println("Тело ответа: " + response.getBody().asString());
+        System.out.println("Готово!");
     }
 }

@@ -1,0 +1,119 @@
+{
+  "info": {
+    "name": "Postman Echo",
+    "description": "Testing API requests",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Request Methods",
+      "item": [
+        {
+          "name": "GET Request",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://postman-echo.com/get?foo1=bar1&foo2=bar2",
+              "protocol": "https",
+              "host": ["postman-echo", "com"],
+              "path": ["get"],
+              "query": [
+                {"key": "foo1", "value": "bar1"},
+                {"key": "foo2", "value": "bar2"}
+              ]
+            }
+          }
+        },
+        {
+          "name": "POST Request",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"foo1\": \"bar1\",\n  \"foo2\": \"bar2\"\n}"
+            },
+            "url": {
+              "raw": "https://postman-echo.com/post",
+              "protocol": "https",
+              "host": ["postman-echo", "com"],
+              "path": ["post"]
+            }
+          }
+        },
+        {
+          "name": "PUT Request",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"foo1\": \"bar1\",\n  \"foo2\": \"bar2\"\n}"
+            },
+            "url": {
+              "raw": "https://postman-echo.com/put",
+              "protocol": "https",
+              "host": ["postman-echo", "com"],
+              "path": ["put"]
+            }
+          }
+        },
+        {
+          "name": "PATCH Request",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"foo1\": \"bar1\",\n  \"foo2\": \"bar2\"\n}"
+            },
+            "url": {
+              "raw": "https://postman-echo.com/patch",
+              "protocol": "https",
+              "host": ["postman-echo", "com"],
+              "path": ["patch"]
+            }
+          }
+        },
+        {
+          "name": "DELETE Request",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"foo1\": \"bar1\",\n  \"foo2\": \"bar2\"\n}"
+            },
+            "url": {
+              "raw": "https://postman-echo.com/delete",
+              "protocol": "https",
+              "host": ["postman-echo", "com"],
+              "path": ["delete"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

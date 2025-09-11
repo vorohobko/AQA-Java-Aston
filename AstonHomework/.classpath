@@ -90,4 +90,10 @@
 	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/selenium-java-4.35.0/selenium-support-4.35.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/selenium-java-4.35.0/selenium-support-4.35.0-sources.jar"/>
 	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/junit-platform-console-standalone-1.9.2.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/testng-7.7.1.jar"/>
 </classpath>

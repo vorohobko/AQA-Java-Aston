@@ -1,16 +1,20 @@
-import io.restassured.RestAssured;
-import io.restassured.response.Response;
-import Task8.PostmanEchoTest;
+import org.testng.TestNG;
+import java.util.ArrayList;
+import java.util.List;
+import Task9.MtsTest;
 
 public class Main {
-    
     public static void main(String[] args) {
-        System.out.println("Запускаем пример запроса...");
+        TestNG testNG = new TestNG();
         
-        Response response = RestAssured.get("https://postman-echo.com/get?test=hello");
+        // Укажите путь к вашему chromedriver
+        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
         
-        System.out.println("Код ответа: " + response.getStatusCode());
-        System.out.println("Тело ответа: " + response.getBody().asString());
-        System.out.println("Готово!");
+        // Добавляем классы для тестирования
+        List<Class<?>> classes = new ArrayList<>();
+        classes.add(MtsTest.class);
+        
+        testNG.setTestClasses(classes.toArray(new Class[0]));
+        testNG.run();
     }
 }

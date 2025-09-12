@@ -6,16 +6,24 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/testng-7.7.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/rest-assured-5.3.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/assertj-core-3.24.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/junit-platform-console-standalone-1.9.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/commons-codec-1.11.jar"/>
 	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/commons-logging-1.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/httpcore-4.4.13.jar"/>
 	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/httpclient-4.5.13.jar"/>
-	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/chromedriver-win64.zip"/>
-	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/selenium-java-4.35.0.zip"/>
+	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/assertj-core-3.24.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/rest-assured-5.3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/testng-7.7.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/junit-platform-console-standalone-1.9.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/junit-platform-console-standalone-1.9.2-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/testng-7.7.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/jackson-databind-2.14.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/jackson-core-2.14.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/selenium-java-4.8.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/jackson-annotations-2.14.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/aspectjweaver-1.9.9.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/allure-java-commons-2.20.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/allure-model-2.20.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/allure-testng-2.20.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/selenium-java-4.35.0/auto-service-annotations-1.1.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/selenium-java-4.35.0/auto-service-annotations-1.1.1-sources.jar"/>
 	<classpathentry kind="lib" path="C:/Users/voroh/Downloads/selenium-java-4.35.0/byte-buddy-1.17.6.jar"/>

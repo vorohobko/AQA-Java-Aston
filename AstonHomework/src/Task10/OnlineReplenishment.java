@@ -43,7 +43,7 @@ public class OnlineReplenishment {
     
     // Проверка логотипов
     public void checkPaymentLogos() throws InterruptedException {
-        System.out.println("Проверяем логотипы платежных систем...");
+        System.out.println("Проверяем логотипы платежных систем");
         
         List<WebElement> logos = driver.findElements(By.xpath("//img"));
         int paymentLogosCount = 0;
